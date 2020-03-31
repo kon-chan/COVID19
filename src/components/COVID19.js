@@ -1,6 +1,6 @@
 import React from 'react';
 
-class App extends React.Component {
+class COVID19 extends React.Component {
   /*constructor(props) {
     super(props);
     this.state = {count: 0};
@@ -13,4 +13,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default COVID19;
