@@ -1,5 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import COVID19 from './components/COVID19';
 
-ReactDOM.render(<COVID19 />, document.getElementById('root'));
+import Header from './components/Header';
+import FullWidthTabs from './components/FullWidthTabs';
+
+import './index.scss';
+
+ReactDOM.render(
+  <React.Fragment>
+    <Header />
+    <FullWidthTabs />
+  </React.Fragment>,
+  document.getElementById('root')
+);

@@ -1,0 +1,149 @@
+@mixin reset {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+@mixin shadow {
+  box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2), 0px 4px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12);
+}
+
+$baseColor : #f44336;
+$accentColor: #EB444B;
+$menuColor: #f5f5f5;
+
+
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans);
+
+/* reset */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td{margin:0;padding:0;}
+address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;}
+ul{list-style:none;}
+table{border-collapse:collapse;border-spacing:0;}
+caption,th{text-align:left;}
+q:before,q:after{content:'';}
+object,embed{vertical-align:top;}
+legend{display:none;}
+h1,h2,h3,h4,h5,h6{font-size:100%;}
+img,abbr,acronym,fieldset{border:0;}
+
+* {
+	box-sizing: border-box;
+}
+html {
+  font-family: 'Noto Sans JP', sans-serif;
+	font:  100% / 1.5 'Noto Sans JP', sans-serif;
+	font-weight: 300;
+	-webkit-text-size-adjust:100%;
+	overflow-x: hidden;
+	color: #555;
+	background: #fff;
+}
+
+
+h2 {
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+/* GlobalMenu */
+.globalMenu {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 100;
+}
+/* Header */
+header {
+  @include reset;
+  @include shadow;
+  background-color: $menuColor;
+  line-height: 3.3rem;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+}
+
+.container {
+  padding: 52px 0 72px;
+
+  /* Home */
+  .topWrapper {
+    @include reset;
+    height: 250px;
+    background-color: lighten($baseColor, 20%);
+
+    .activeCounter {
+      font-size: 3rem;
+      font-weight: bold;
+      color: $accentColor;
+      margin-top: 10px;
+      p {
+        font-size: 2rem;
+        font-weight: normal;
+        color: #555;
+        display: inline;
+        padding-left: 7px;
+      }
+
+    }
+    h2 {
+      font-size: 2.5rem;
+      font-weight: normal;
+      padding-top: 70px;
+    }
+  }
+
+  .countryName {
+    @include reset;
+
+    h1 {
+      font-size: 2.2rem;
+      position: relative;
+      display: inline-block;
+      padding: 30px 66px;
+      color: #555;
+
+      &:before,
+      &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        display: inline-block;
+        width: 45px;
+        height: 1px;
+        background-color: black;
+      }
+      &:before {
+        left:0;
+      }
+      &:after {
+        right: 0;
+      }
+    }
+  }
+
+  .flexContainer {
+    display: flex;
+    align-items: stretch;
+    text-align: center;
+
+    .caseCard {
+      margin-top: 30px;
+      padding: 25px 0;
+
+      p {
+        font-size: 1.2rem;
+        padding-left: 3px;
+        color: #555;
+      }
+      span {
+        color: $baseColor;
+        font-size: 2rem;
+        padding-right: 7px;
+      }
+    }
+  }
+
+  /* Search */
+
+
+}
