@@ -8,12 +8,12 @@ class COVID19 extends React.Component {
     super(props);
     this.state = {
       datas:[],
-      country: 'japan',
     };
     const request = axios.create({
       baseURL: 'https://coronavirus-19-api.herokuapp.com/countries'
     })
-    request.get(`/${this.state.country}`)
+    
+    request.get(`/${this.props.country}`)
     .then(res => {
       this.setState({
         datas: res.data,

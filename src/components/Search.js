@@ -22,11 +22,15 @@ class Search extends React.Component {
     return (
       <React.Fragment>
         {this.state.datas.map(info => (
-          <h1>{info.country}</h1>
+          <button
+            key={info.country}
+            onClick={this.props.changeCountry}>{info.country}
+          </button>
         ))}
       </React.Fragment>
     );
   }
 }
+
 
 export default Search;

@@ -1,17 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SwipeableViews from 'react-swipeable-views';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import PhoneIcon from '@material-ui/icons/Phone';
+import FlagIcon from '@material-ui/icons/Flag';
+import SearchIcon from '@material-ui/icons/Search';
+import PublicIcon from '@material-ui/icons/Public';
 
 
 import COVID19 from './COVID19';
 import Search from './Search';
+import World from './World';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -43,61 +45,78 @@ function a11yProps(index) {
   };
 }
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    backgroundColor: theme.palette.background.paper,
-  },
-}));
 
-export default function FullWidthTabs() {
-  const classes = useStyles();
-  const theme = useTheme();
-  const [value, setValue] = React.useState(0);
+class FullWidthTabs extends React.Component {
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+  state = {
+      value: 0,
+      setValue: 0,
+      country: 'japan',
+    }
 
-  const handleChangeIndex = (index) => {
-    setValue(index);
-  };
+  handleChange = (event, newValue) => {
+    this.setState({ setValue: newValue });
+  }
+  handleChangeIndex = (index) => {
+    this.setState({ setValue: index });
+  }
 
-  return (
-    <div className={classes.root}>
-      <div className="globalMenu">
-        <AppBar position="static" color="default">
-          <Tabs
-            value={value}
-            onChange={handleChange}
-            indicatorColor="primary"
-            textColor="primary"
-            variant="fullWidth"
-            aria-label="full width tabs example"
+  changeCountry(country) {
+    const result = country.target.toString().replace('<button>', '');
+    const countryName = result.replace('</button>', '');
+
+    this.setState({
+      country: country.target,
+      setValue: 0,
+     });
+  }
+
+  render() {
+    return (
+      <div>
+        <div className="globalMenu">
+          <AppBar position="static" color="default">
+            <Tabs
+              value={this.state.setValue}
+              onChange={this.handleChange}
+              indicatorColor="primary"
+              textColor="primary"
+              variant="fullWidth"
+              aria-label="full width tabs example"
+            >
+              <Tab label="Country" icon={<FlagIcon />} {...a11yProps(0)} />
+              <Tab label="Search" icon={<SearchIcon />} {...a11yProps(1)} />
+              <Tab label="World" icon={<PublicIcon />} {...a11yProps(2)} />
+            </Tabs>
+          </AppBar>
+        </div>
+
+        <div className="container">
+          <SwipeableViews
+            index={this.state.setValue}
+            onChangeIndex={this.handleChangeIndex}
           >
-            <Tab label="Country" icon={<PhoneIcon />} {...a11yProps(0)} />
-            <Tab label="Search" icon={<PhoneIcon />} {...a11yProps(1)} />
-            <Tab label="World" icon={<PhoneIcon />} {...a11yProps(2)} />
-          </Tabs>
-        </AppBar>
-      </div>
+            <TabPanel value={this.state.setValue} index={0} >
+              <COVID19
+                country = {this.state.country}
+              />
+            </TabPanel>
 
-      <div className="container">
-        <SwipeableViews
-          axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-          index={value}
-          onChangeIndex={handleChangeIndex}
-        >
-          <TabPanel value={value} index={0} dir={theme.direction}>
-            <COVID19 />
-          </TabPanel>
-          <TabPanel value={value} index={1} dir={theme.direction}>
-            <Search />
-          </TabPanel>
-        <TabPanel value={value} index={2} dir={theme.direction}>
-          Item Three
-        </TabPanel>
-      </SwipeableViews>
+            <TabPanel value={this.state.setValue} index={1} >
+              <Search
+                changeCountry = {this.changeCountry.bind(this)}
+              />
+            </TabPanel>
+
+            <TabPanel value={this.state.setValue} index={2}>
+              <World />
+            </TabPanel>
+
+          </SwipeableViews>
+        </div>
+
       </div>
-    </div>
-  );
+    );
+  }
 }
+export default FullWidthTabs;
