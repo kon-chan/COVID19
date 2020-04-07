@@ -13,7 +13,6 @@ import PublicIcon from '@material-ui/icons/Public';
 
 import COVID19 from './COVID19';
 import Search from './Search';
-import World from './World';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -113,7 +112,7 @@ class FullWidthTabs extends React.Component {
             </TabPanel>
 
             <TabPanel value={this.state.setValue} index={2}>
-              <World />
+              <COVID19 country="World" />
             </TabPanel>
 
           </SwipeableViews>

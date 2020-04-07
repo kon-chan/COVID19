@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 
 import CasePattern from './CasePattern';
+import Loading from './Loading';
 
 class COVID19 extends React.Component {
   constructor(props){
@@ -12,7 +13,7 @@ class COVID19 extends React.Component {
     const request = axios.create({
       baseURL: 'https://coronavirus-19-api.herokuapp.com/countries'
     })
-    
+
     request.get(`/${this.props.country}`)
     .then(res => {
       this.setState({
@@ -34,7 +35,7 @@ class COVID19 extends React.Component {
               todayDeaths = {this.state.datas.todayDeaths}
               recovered = {this.state.datas.recovered}
               critical = {this.state.datas.critical}
-            />) : (<p>Loading </p>)}
+            />) : (<Loading />)}
       </React.Fragment>
     );
   }
