@@ -7,6 +7,7 @@ class Search extends React.Component {
     this.state = {
       datas: [],
     }
+    //this.func = this.func.bind(this);
     const request = axios.create({
       baseURL: 'https://coronavirus-19-api.herokuapp.com'
     })
@@ -18,13 +19,18 @@ class Search extends React.Component {
     })
   }
 
+  func(countryName) {
+    this.props.setCountry(countryName);
+
+  }
+
   render() {
     return (
       <React.Fragment>
         {this.state.datas.map(info => (
           <button
             key={info.country}
-            onClick={this.props.changeCountry}>{info.country}
+            onClick={this.func.bind(this, info.country)}>{info.country}
           </button>
         ))}
       </React.Fragment>

@@ -60,15 +60,19 @@ class FullWidthTabs extends React.Component {
   handleChangeIndex = (index) => {
     this.setState({ setValue: index });
   }
-
+/*
   changeCountry(country) {
-    const result = country.target.toString().replace('<button>', '');
-    const countryName = result.replace('</button>', '');
-
     this.setState({
       country: country.target,
       setValue: 0,
      });
+  }
+*/
+  setCountry(value) {
+    this.setState({
+      country: value,
+      setValue: 0,
+    })
   }
 
   render() {
@@ -104,7 +108,7 @@ class FullWidthTabs extends React.Component {
 
             <TabPanel value={this.state.setValue} index={1} >
               <Search
-                changeCountry = {this.changeCountry.bind(this)}
+                setCountry = {this.setCountry.bind(this)}
               />
             </TabPanel>
 
