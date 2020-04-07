@@ -46,7 +46,6 @@ function a11yProps(index) {
 
 
 class FullWidthTabs extends React.Component {
-
   state = {
       value: 0,
       setValue: 0,
