@@ -94,6 +94,7 @@ header {
 
   .countryName {
     @include reset;
+    min-height: 112px;
 
     h1 {
       font-size: 2.2rem;
