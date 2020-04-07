@@ -44,7 +44,6 @@ function a11yProps(index) {
   };
 }
 
-
 class FullWidthTabs extends React.Component {
   state = {
       value: 0,
@@ -58,14 +57,7 @@ class FullWidthTabs extends React.Component {
   handleChangeIndex = (index) => {
     this.setState({ setValue: index });
   }
-/*
-  changeCountry(country) {
-    this.setState({
-      country: country.target,
-      setValue: 0,
-     });
-  }
-*/
+
   setCountry(value) {
     this.setState({
       country: value,

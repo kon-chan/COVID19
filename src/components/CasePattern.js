@@ -1,4 +1,5 @@
 import React from 'react';
+import windowSize from 'react-window-size';
 
 import Container from '@material-ui/core/Container';
 import Paper from '@material-ui/core/Paper';
@@ -8,6 +9,14 @@ import CountUp from 'react-countup';
 
 class CasePattern extends React.Component {
   render() {
+    let column = 6;
+    if(this.props.windowWidth > 1024) {
+      column = 4;
+    } else if(this.props.windowWidth > 480) {
+      column = 6;
+    } else {
+      column = 12;
+    }
     return (
       <React.Fragment>
         <div className="topWrapper">
@@ -34,42 +43,42 @@ class CasePattern extends React.Component {
 
         <Container className="flexContainer">
         <Grid container spacing={3}>
-          <Grid item xs={4}>
+          <Grid item xs={column}>
             <Paper className="caseCard">
                 <h2>本日の感染者数</h2>
                 <p><span>{this.props.todayCases}</span>名</p>
             </Paper>
           </Grid>
 
-          <Grid item xs={4}>
+          <Grid item xs={column}>
             <Paper className="caseCard">
                 <h2>本日の死亡例</h2>
                 <p><span>{this.props.todayDeaths}</span>名</p>
             </Paper>
           </Grid>
 
-          <Grid item xs={4}>
+          <Grid item xs={column}>
             <Paper className="caseCard">
                 <h2>回復した数</h2>
                 <p><span>{this.props.recovered}</span>名</p>
             </Paper>
           </Grid>
 
-          <Grid item xs={4}>
+          <Grid item xs={column}>
             <Paper className="caseCard">
                 <h2>総合した感染者数</h2>
                 <p><span>{this.props.cases}</span>名</p>
             </Paper>
           </Grid>
 
-          <Grid item xs={4}>
+          <Grid item xs={column}>
             <Paper className="caseCard">
                 <h2>死亡例</h2>
                 <p><span>{this.props.deaths}</span>名</p>
             </Paper>
           </Grid>
 
-          <Grid item xs={4}>
+          <Grid item xs={column}>
             <Paper className="caseCard">
                   <h2>重症</h2>
                   <p><span>{this.props.critical}</span>名</p>
@@ -89,4 +98,4 @@ class CasePattern extends React.Component {
 
 
 
-export default CasePattern;
+export default windowSize(CasePattern);
