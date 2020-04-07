@@ -9,6 +9,7 @@ Web site : [https://sharp-tesla-cfaa6b.netlify.com](https://sharp-tesla-cfaa6b.n
 
 <img width="1679" alt="covid19" src="https://user-images.githubusercontent.com/33449024/78641598-6c21f080-78ec-11ea-8fc5-930c7cd60446.png">
 
+また，本日の感染者数や本日の死亡例は，反映に時間がかかる可能性があります．
 
 ## Technologies
 ### Frontend
