@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 
+import Button from '@material-ui/core/Button';
+
 class Search extends React.Component {
   constructor(props) {
     super(props);
@@ -28,10 +30,15 @@ class Search extends React.Component {
     return (
       <React.Fragment>
         {this.state.datas.map(info => (
-          <button
+          <Button
             key={info.country}
-            onClick={this.func.bind(this, info.country)}>{info.country}
-          </button>
+            onClick={this.func.bind(this, info.country)}
+            variant="outlined"
+            color="primary"
+            style={{margin: 5}}
+          >
+            {info.country}
+          </Button>
         ))}
       </React.Fragment>
     );
