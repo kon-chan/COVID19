@@ -5,7 +5,7 @@
 そのため，どこの国がどれほどの被害を受けているのかをすぐに分かる「各国COVID-19早見表」を制作いたしました．<br>
 少しでも貢献できたら幸いです．
 
-Web site : [https://romantic-montalcini-0532ee.netlify.com/](https://romantic-montalcini-0532ee.netlify.com/)
+Web site : [https://sharp-tesla-cfaa6b.netlify.com](https://sharp-tesla-cfaa6b.netlify.com)
 
 <img width="1679" alt="covid19" src="https://user-images.githubusercontent.com/33449024/78641598-6c21f080-78ec-11ea-8fc5-930c7cd60446.png">
 
